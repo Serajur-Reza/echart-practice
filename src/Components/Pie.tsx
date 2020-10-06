@@ -21,14 +21,15 @@ const Pie = () => {
     // console.log(duos())
 
     const chart={
-        tooltip:{
-            show: true,
-            trigger: "item",
-            animation: true,
-            formatter: 'data: {b} <br/> {a}: {c}'
-        },
+        // tooltip:{
+        //     show: true,
+        //     trigger: "item",
+        //     animation: true,
+        //     formatter: 'data: {b} <br/> {a}: {c}'
+        // },
 
         legend:{
+            orient:"horizontal",
             left:"center",
             data:sepDate()
         },
@@ -36,7 +37,17 @@ const Pie = () => {
         series:[{
             name: "Temperature",
             type: "pie",
+            radius: ['50%', '70%'],
+            animation: false,
             data: duos(),
+
+            label:{
+                color: "black",
+                position: "center",
+                fontsize: 80,
+                formatter:"Pie",
+                animator: false
+            }
         },
 
     ]

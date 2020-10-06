@@ -11,12 +11,12 @@ const Line = () => {
         //     left: "center"
         // },
 
-        tooltip:{
-            show: true,
-            animation:true,
-            trigger: "item",
-            formatter:`Date: {b0} <br/> {a0}: {c0}`
-        },
+        // tooltip:{
+        //     show: true,
+        //     animation:true,
+        //     trigger: "item",
+        //     formatter:`Date: {b0} <br/> {a0}: {c0}`
+        // },
 
         legend:{
             orient:"horizontal",
@@ -24,17 +24,46 @@ const Line = () => {
             data: ['Temperature',"Rain"]
         },
         xAxis:{
-            data: sepDate()
+            name:"Date",
+            nameLocation:"center",
+            data: sepDate(),
+            interval:1,
+            nameTextStyle:{
+                padding:20
+            },
+
+            axisTick:{
+                show:false,
+                interval:5
+            },
+            alignWithLabel:true
         },
 
         yAxis:{
+            name:"Temperature and Rain",
+            nameLocation:"center",
+            // boundaryGap:["20%","20%"],
+            splitLine:{
+                show:false,
+            },
+            nameTextStyle:{
+                padding:20
+            },
             
+            interval:2,
+            minInterval:1,
+            axisTick:{
+                show:false,
+            },
         },
 
         series:[{
             label: "Temperature",
             name:"Temperature",
             type: "line",
+            symbol: "circle",
+            symbolSize: [10,10],
+            animation:false,
             data: sepTemp(),
             itemStyle: {
                 color: "blue",
@@ -44,6 +73,9 @@ const Line = () => {
         {
             name:"Rain",
             type: "line",
+            symbol: "circle",
+            symbolSize: [10,10],
+            animation:false,
             data: sepRain(),
             itemStyle: {
                 color: "red",
